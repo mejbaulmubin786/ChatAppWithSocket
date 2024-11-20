@@ -783,9 +783,9 @@
                         alt="user avatar"
                     />
                     <div class="user-info ps-3">
-                        <p class="user-name mb-0">Pauline Seitz</p>
+                        <p class="user-name mb-0">{{ Auth::user()->name }}</p>
                         <p class="designattion mb-0">
-                            Web Designer
+                            {{ Auth::user()->username }}
                         </p>
                     </div>
                 </a>
