@@ -102,3 +102,13 @@ use Illuminate\Support\Facades\Auth;
 
 @endsection
 ```
+
+এই পর্যায়ে এসে একটি সমস্যা পেয়েছে যাতে আমর প্রোফাইল পেইজের কিছু কনটেন্ট উপরে উঠে যায় তখন দেখলাম যে আমার @yield('admin') অংশ টুকু page-wrapper এর মধ্যে রাখার কথা ছিলো কিন্তু আমি ভুল বসত সেটি বাদ রেখেছিলাম।
+
+```php
+<div class="page-wrapper">
+    @yield('admin')
+<div>
+```
+
+এডমিন প্রোফাইল ছবি লিঙ্ক টিকে ও আমি এখানে কমপ্লিট করে ফেলেছি। `{{asset('adminbackend/assets/images/avatars/avatar-2.png')}}` তাছাড়া এখানে অপ্রয়োজনিয় অনেক কিছুই বাদ দিয়ে দিলাম। এখান থেকে।
