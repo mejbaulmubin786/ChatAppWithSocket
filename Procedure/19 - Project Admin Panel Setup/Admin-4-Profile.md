@@ -32,7 +32,7 @@
    নতুন প্রোফাইল ইউআরএল সংযোগ করতে `web.php` ফাইল এডিট করুন।
 
 ```php
-Route::get('/admin/profile', [AdminController::class, 'adminProfile'])->name('admin.profile');
+Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
 ```
 
 ---

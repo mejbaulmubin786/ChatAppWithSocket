@@ -36,7 +36,9 @@
         @include('admin.body.header')
         <!--end header -->
         <!--start page wrapper -->
-        @yield('admin')
+        <div class="page-wrapper">
+            @yield('admin')
+        <div>
         <!--end page wrapper -->
         <!--start overlay-->
         <div class="overlay toggle-icon"></div>

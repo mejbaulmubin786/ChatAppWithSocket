@@ -1,10 +1,9 @@
 @extends('admin.admin_dashboard')
 @section('admin')
+
 <div class="page-content">
     <!--breadcrumb-->
-    <div
-        class="page-breadcrumb d-none d-sm-flex align-items-center mb-3"
-    >
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">Admin Profile</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
@@ -18,7 +17,7 @@
                         class="breadcrumb-item active"
                         aria-current="page"
                     >
-                        User Profilep
+                        Admin Profilep
                     </li>
                 </ol>
             </nav>
@@ -435,4 +434,5 @@
         </div>
     </div>
 </div>
+
 @endsection
