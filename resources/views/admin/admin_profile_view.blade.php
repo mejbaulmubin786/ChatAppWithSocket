@@ -67,23 +67,22 @@
                                 class="d-flex flex-column align-items-center text-center"
                             >
                                 <img
-                                    src="{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo) }}"
+                                    src="{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo):url('uplode/admin_images/avatar-2.png')  }}"
                                     alt="Admin"
                                     class="rounded-circle p-1 bg-primary"
                                     width="110"
                                 />
                                 <div class="mt-3">
-                                    <h4>John Doe</h4>
+                                    <h4>{{ $adminData->name }}</h4>
                                     <p
                                         class="text-secondary mb-1"
                                     >
-                                        Full Stack Developer
+                                    {{ $adminData->email }}
                                     </p>
                                     <p
                                         class="text-muted font-size-sm"
                                     >
-                                        Bay Area, San Francisco,
-                                        CA
+                                    {{ $adminData->Address }}
                                     </p>
 
                                 </div>
@@ -175,7 +174,7 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        value="{{ $adminData->username }}"
+                                        value="{{ $adminData->username }}" disabled
                                     />
                                 </div>
                             </div>
@@ -237,6 +236,22 @@
                                     />
                                 </div>
                             </div>
+
+
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Photo</h6>
+                                </div>
+                                <div
+                                    class="col-sm-9 text-secondary"
+                                >
+                                    <input
+                                        type="file"
+                                        class="form-control"
+                                    />
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div

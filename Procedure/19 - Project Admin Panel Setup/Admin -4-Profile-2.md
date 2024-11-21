@@ -60,19 +60,19 @@
 // আমাদের আছে নিচের মতো
 <img src="{{asset('adminbackend/assets/images/avatars/avatar-2.png')}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110" />
 // আমরা এখানে শর্ত এমনভাবে যুক্ত করবো যাতে আমরা কোন ছবি যুক্ত না করলে ডিফল্ট এটি প্রদর্শন করে আর যদি দি তবে আমাদের দেওয়া টা প্রদর্শন করে
-{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo) }}
+{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo):url('uplode/admin_images/'.avatar-2.png) }}
 ```
 
 ## কোর্ড ব্যাখ্যা
 
-`{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo) }}` কোডটি Laravel ব্লেড টেমপ্লেটের একটি কন্ডিশনাল স্টেটমেন্ট, যেখানে চেক করা হচ্ছে, `$adminData->photo` ফিল্ডটি খালি কিনা। এর মাধ্যমে ডাইনামিকভাবে একটি ফাইলের URL তৈরি করা হচ্ছে। সহজভাবে এটি নিম্নরূপে কাজ করে:
+`{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo):url('uplode/admin_images/avatar-2.png') }}` কোডটি Laravel ব্লেড টেমপ্লেটের একটি কন্ডিশনাল স্টেটমেন্ট, যেখানে চেক করা হচ্ছে, `$adminData->photo` ফিল্ডটি খালি কিনা। এর মাধ্যমে ডাইনামিকভাবে একটি ফাইলের URL তৈরি করা হচ্ছে। সহজভাবে এটি নিম্নরূপে কাজ করে:
 
 ---
 
 ### কোডটি:
 
 ```php
-{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo) }}
+{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo):url('uplode/admin_images/avatar-2.png') }}
 ```
 
 ---
@@ -210,7 +210,31 @@ url('uplode/admin_images/'.$adminData->photo)
 
 #### ৫. ফিল্ড আপডেটের সুবিধা:
 
-ভিডিওতে দেখানো হয়েছে যে প্রোফাইল পেজ থেকে অ্যাডমিন সকল ফিল্ড আপডেট করতে পারবেন। যদি কোনো ডেটা না থাকে তবে এটি `null` দেখাবে।
+```php
+<div class="mt-3">
+    <h4>John Doe</h4>
+    <p class="text-secondary mb-1">Full Stack Developer</p>
+    <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+
+</div>
+```
+
+তাছাড়া এড্রেস এর পরে আমরা ছবি আপলোড করার জন্য আর একটি ফিল্ড যুক্ত করতে পারি।
+
+```php
+<div class="row mb-3">
+    <div class="col-sm-3">
+        <h6 class="mb-0">Photo</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+        <input type="file" class="form-control" /> // এখানে টাইপ ছবির জন্য কিন্তু file হবে।
+    </div>
+</div>
+```
+
+````php
+<input type="text" class="form-control" value="{{ $adminData->username }}" disabled/> // আমরা ইউজার নেইম এর অংশকে disabled ব্যবহার করে ডিসেবল রাখতে পারি যাতে পরিবর্তন করা না যায়।
+ ```
 
 #### ৬. সামগ্রিক ফলাফল:
 
@@ -225,4 +249,5 @@ url('uplode/admin_images/'.$adminData->photo)
 -   প্রোফাইল ইমেজের জন্য ডিফল্ট ইমেজ ব্যবহারের শর্ত।
 -   ফিল্ডসমূহ ডাইনামিকভাবে আপডেট করা।
 
-আপনার Laravel প্রজেক্টে যদি এই পদ্ধতিগুলো কার্যকরী হয়, তবে এটি অত্যন্ত উপকারী হবে। **Laravel-এর ডেটা হ্যান্ডলিং এবং Blade টেমপ্লেটিং-এর বেসিক ধারণাগুলি ভালোভাবে বোঝার জন্য এটি একটি আদর্শ উদাহরণ।**
+
+````
