@@ -1,5 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <div class="page-content">
     <!--breadcrumb-->
@@ -23,37 +24,7 @@
             </nav>
         </div>
         <div class="ms-auto">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">
-                    Settings
-                </button>
-                <button
-                    type="button"
-                    class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                    data-bs-toggle="dropdown"
-                >
-                    <span class="visually-hidden"
-                        >Toggle Dropdown</span
-                    >
-                </button>
-                <div
-                    class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"
-                >
-                    <a class="dropdown-item" href="javascript:;"
-                        >Action</a
-                    >
-                    <a class="dropdown-item" href="javascript:;"
-                        >Another action</a
-                    >
-                    <a class="dropdown-item" href="javascript:;"
-                        >Something else here</a
-                    >
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="javascript:;"
-                        >Separated link</a
-                    >
-                </div>
-            </div>
+
         </div>
     </div>
     <!--end breadcrumb-->
@@ -242,13 +213,28 @@
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Photo</h6>
                                 </div>
-                                <div
-                                    class="col-sm-9 text-secondary"
-                                >
+                                <div class="col-sm-9 text-secondary">
                                     <input
                                         type="file"
                                         class="form-control"
+                                        id="image"
                                     />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0"></h6>
+                                </div>
+                                <div
+                                    class="col-sm-9 text-secondary"
+                                >
+                                <img id ="showImage"
+                                src="{{ !empty($adminData->photo ) ? url('uplode/admin_images/'.$adminData->photo):url('uplode/admin_images/avatar-2.png')  }}"
+                                alt="Admin"
+
+                                width="110"
+                            />
                                 </div>
                             </div>
 
@@ -273,4 +259,18 @@
     </div>
 </div>
 
+
+
+
+<script type = "text/javascript">
+    $(document).ready(function () {
+        $('#image').change(function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#showImage').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+    });
+</script>
 @endsection
