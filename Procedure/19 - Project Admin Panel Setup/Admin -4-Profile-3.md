@@ -61,6 +61,23 @@ HTML এর শেষে একটি স্ক্রিপ্ট ট্যা�
         });
     });
 </script>
+
+
+//--------------- উপরের মতো না করে শুধু জাভাক্রিপ্ট দিয়ে করা হলো তাতে সিডি এন আর লাগবে না।
+<script type = "text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+    const imageInput = document.getElementById('image');
+    const showImage = document.getElementById('showImage');
+
+    imageInput.addEventListener('change', function (e) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            showImage.src = e.target.result;
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    });
+});
+</script>
 ```
 
 এখানে ধাপে ধাপে বুঝানো হলো কী হচ্ছে:
