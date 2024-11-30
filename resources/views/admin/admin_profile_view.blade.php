@@ -27,9 +27,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <form method="post" action="{{ route('admin.profile.store') }}"
-                                    enctype="multipart/form-data">
-                                    @csrf
+
                                     <div class="d-flex flex-column align-items-center text-center">
                                         <img src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('upload/admin_images/avatar-2.png') }}"
                                             alt="Admin" class="rounded-circle p-1 bg-primary" width="110" />
@@ -81,13 +79,17 @@
                                             <span class="text-secondary">codervent</span>
                                         </li>
                                     </ul>
+                                </form>
                             </div>
-                            </form>
+
                         </div>
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-body">
+                                <form method="post" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data">
+
+                                    @csrf
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">
