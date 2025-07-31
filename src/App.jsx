@@ -1,8 +1,14 @@
 import React from 'react'
 
 const App = () => {
+  let handelChange=(e)=>{
+    console.log(e.terget);
+  }
   return (
-    <div>App</div>
+    <>
+      <input onChange={handelChange} type="text" />
+      <button>Add ToDo</button>
+    </>
   )
 }
 
