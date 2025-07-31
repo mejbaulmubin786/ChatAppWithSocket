@@ -1,8 +1,8 @@
 import React from 'react'
 
 const App = () => {
-  let handelChange=(e)=>{
-    console.log(e.terget);
+  let handelChange =(e)=>{
+    console.log(e.target.value);
   }
   return (
     <>
