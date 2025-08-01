@@ -3,17 +3,29 @@ import { useState } from 'react'
 
 const App = () => {
   let [input, setInput]=useState("")
+  let [arr, setArr]=useState([])
   let handelChange =(e)=>{
     setInput(e.target.value);
   }
 
   let handleTodo =()=>{
-    console.log(input);
+    let arr2 = [...arr]
+    arr2.push(input)
+    setArr(arr2)
   }
+
+  
   return (
     <>
       <input onChange={handelChange} type="text" />
       <button onClick={handleTodo}>Add ToDo</button>
+      <ul>
+        {
+          arr.map(item=>(
+            <li>{item}</li>
+          ))
+        }
+      </ul>
     </>
   )
 }
