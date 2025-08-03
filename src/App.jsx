@@ -8,7 +8,7 @@ const App = () => {
   let [arr, setArr]=useState([])
 
   let handleTodo =()=>{
-    set(ref(db, 'alldata/'), {
+    set(push(ref(db, 'alldata/')), {
     name: input,
     
   }).then(()=>{
