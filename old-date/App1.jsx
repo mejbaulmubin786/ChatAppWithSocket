@@ -1,19 +1,22 @@
 import React from 'react'
 import { useState } from 'react'
-import { getDatabase, ref, set, push } from "firebase/database";
 
 const App = () => {
-  const db = getDatabase();
   let [input, setInput]=useState("")
   let [arr, setArr]=useState([])
+  /*
+  let handelChange =(e)=>{
+    setInput(e.target.value);
+  }
+  */
 
   let handleTodo =()=>{
-    set(ref(db, 'alldata/'), {
-    name: input,
+    //let arr2 = [...arr]
+    //arr2.push(input)
+    //setArr(arr2)
+    setArr([...arr, input]);
+    setInput("");
     
-  }).then(()=>{
-    console.log("send date to database")
-  });
   }
 
   
@@ -33,3 +36,10 @@ const App = () => {
 }
 
 export default App
+
+
+
+function writeUserData(userId, name, email, imageUrl) {
+  
+  
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { getDatabase, ref, set, push } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 
 const App = () => {
   const db = getDatabase();
