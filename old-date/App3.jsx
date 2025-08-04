@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, push } from "firebase/database";
 
 const App = () => {
   const db = getDatabase();
@@ -8,7 +8,7 @@ const App = () => {
   let [arr, setArr]=useState([])
 
   let handleTodo =()=>{
-    set(ref(db, 'alldata/'), {
+    set(push(ref(db, 'alldata/')), {
     name: input,
     
   }).then(()=>{
@@ -33,4 +33,4 @@ const App = () => {
 }
 
 export default App
-//In this position if we save data every time data is overrite
+//Overrite data problem fixed 

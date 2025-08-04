@@ -13,6 +13,7 @@ const App = () => {
     
   }).then(()=>{
     console.log("send date to database")
+    setInput("")
   });
   }
 
