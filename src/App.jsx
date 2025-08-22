@@ -6,7 +6,8 @@ import { RotatingLines } from 'react-loader-spinner';
 const App = () => {
   const db = getDatabase();
   let [input, setInput] = useState("")
-  let [arr, setArr] = useState([])
+  //let [loader, setLoader] = useState(false)
+  //let [arr, setArr] = useState([])
 
   let handleTodo = () => {
     set(push(ref(db, 'alldata/')), {
@@ -38,13 +39,13 @@ const App = () => {
 
       <input onChange={(e) => setInput(e.target.value) /*handelChange*/} type="text" />
       <button onClick={handleTodo}>Add ToDo</button>
-      <ul>
+      {/*<ul>
         {
           arr.map(item => (
             <li>{item}</li>
           ))
         }
-      </ul>
+      </ul>*/}
     </>
   )
 }
