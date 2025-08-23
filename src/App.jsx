@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { getDatabase, ref, set, push } from "firebase/database";
+import { getDatabase, ref, set, push, onValue } from "firebase/database";
 import { RotatingLines } from 'react-loader-spinner';
 import Im1 from './assets/ai.gif'
 
@@ -21,7 +21,16 @@ const App = () => {
     });
   }
 
+  useEffect(() => {
+    const starCountRef = ref(db, 'alldata/');
+    onValue(starCountRef, (snapshot) => {
+      //console.log(snapshot.val());
+      snapshot.forEach(item => {
+        console.log(item.val());
+      })
+    });
 
+  }, [])
   return (
     <>
 
