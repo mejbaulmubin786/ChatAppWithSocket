@@ -8,11 +8,11 @@ const App = () => {
   const db = getDatabase();
   let [input, setInput] = useState("")
   let [loader, setLoader] = useState(false)
-  //let [arr, setArr] = useState([])
+  let [alldata, setAllData] = useState([])
 
   let handleTodo = () => {
     setLoader(true)
-    set(push(ref(db, 'alldata/')), {
+    set(push(ref(db, 'users/')), {
       name: input,
 
     }).then(() => {
@@ -21,13 +21,19 @@ const App = () => {
     });
   }
 
+  //console.log(alldata);
+
   useEffect(() => {
-    const starCountRef = ref(db, 'alldata/');
+    const starCountRef = ref(db, 'users/');
     onValue(starCountRef, (snapshot) => {
       //console.log(snapshot.val());
+      let arr = [];
       snapshot.forEach(item => {
-        console.log(item.val());
+        //console.log(item.val());
+        arr.push(item.val());
+
       })
+      setAllData(arr);
     });
 
   }, [])
@@ -64,6 +70,13 @@ const App = () => {
           ))
         }
       </ul>*/}
+      <ul>
+        {
+          alldata.map(item => (
+            <li>{item.name}</li>
+          ))
+        }
+      </ul>
     </>
   )
 }
